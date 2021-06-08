@@ -1,0 +1,220 @@
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>11-Minute Workout</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="11-Minute Workout">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://maresplain.com/images/og-workout.png">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+
+  <script>
+
+    function startTimer(duration, displayOverall, displayStep) {
+
+        var timer = duration, minutes, seconds;
+
+        setInterval(function () {
+
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+
+
+            if (seconds == 0) {
+              switchCards(minutes);
+            }
+
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            displayOverall.textContent = minutes + ":" + seconds;
+
+            seconds = seconds == 00 ? "60" : seconds;
+
+            displayStep.textContent = seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+
+        }, 1000);
+    };
+
+
+    function switchCards( minutes ) {
+
+      var currentCard = document.querySelector('#step-' + (minutes ));
+      var nextCard = document.querySelector('#step-' + (minutes - 1));
+
+      currentCard.style.display = 'none';
+      nextCard.style.display= 'block';
+    };
+
+    window.onload = function () {
+
+      var startButton = document.querySelector('.btn--start');
+
+
+      // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+      let vh = window.innerHeight * 0.01;
+      // Then we set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+      startButton.addEventListener('click', function( ) {
+
+
+        // numbers
+        var displayOverall = document.querySelector('.time__number--workout');
+        var displayStep = document.querySelector('.time__number--step');
+
+        // sections
+        var sectionTime = document.querySelector('.time__container');
+        var sectionStep = document.querySelector('.step__container');
+        var sectionStart = document.querySelector('.start__container');
+
+        var firstSlide = document.querySelector('#step-10');
+
+
+        // show/hides
+        sectionStart.style.display = 'none';
+
+        sectionTime.style.display= 'flex';
+        sectionStep.style.display= 'block';
+        firstSlide.style.display= 'block';
+
+        var startTime = parseInt(displayOverall.innerHTML);
+        var time = 60 * startTime;
+
+        startTimer(time, displayOverall, displayStep);
+
+      }, false);
+
+
+    };
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEE3W17K4G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JEE3W17K4G');
+  </script>
+
+</head>
+
+<body class="page-workout">
+
+  <div class="start__container">
+    <div class="start__content">
+      <h1 class="start__title">11-Minute Workout</h1>
+      <button class="btn--start">click to start</button>
+
+      <p>Before you start, check out these exercises:</p>
+      <ul>
+        <li><strong>Modified burpees:</strong> no pushups; <a href="https://assets.adobe.com/public/be8b4854-43a0-4f2a-68c3-af8b4eb1a927/Burpees%20Angled.MOV" target="_blank">see video example</a></li>
+        <li><strong>Split squat jumps:</strong> starting and ending in the lunge position, while alternating which leg lands forward; <a href="https://assets.adobe.com/public/be8b4854-43a0-4f2a-68c3-af8b4eb1a927/Split%20Squat%20Jumps%20Side.MOV" target="_blank">see video example</a></li>
+      </ul>
+
+      Check out the inspiration here: <a href="https://www.nytimes.com/2021/01/13/well/move/an-11-minute-body-weight-workout-with-proven-fitness-benefits.html" target="_blank">https://www.nytimes.com/2021/01/13/well/move/an-11-minute-body-weight-workout-with-proven-fitness-benefits.html</a>
+    </div>
+  </div>
+
+  <div class="time__container">
+    <p class=time__readout--workout>
+      Workout ends in <span class="time__number--workout">11:00</span> minutes
+    </p>
+    <div class="time__readout">
+      <p class="time__readout--step">
+        <span class="time__number--step">60</span>
+      </p>
+    </div>
+  </div>
+
+  <ol class="step__container">
+    <li id="step-11" class="step"></li>
+    <li id="step-10" class="step">
+      <h2 class="step__exercise">jumping jacks</h2>
+      <h3 class="step__subtitle">Warm Up</h3>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">1</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-9" class="step">
+      <h2 class="step__exercise">modified burpees</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">2</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-8" class="step">
+      <h2 class="step__exercise">walking in place</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">3</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-7" class="step">
+      <h2 class="step__exercise">high-knee running in place</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">4</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-6" class="step">
+      <h2 class="step__exercise">walking in place</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">5</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-5" class="step">
+      <h2 class="step__exercise">split squat jumps</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">6</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-4" class="step">
+      <h2 class="step__exercise">walking in place</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">7</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-3" class="step">
+      <h2 class="step__exercise">high-knee running in place</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">8</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-2" class="step">
+      <h2 class="step__exercise">walking in place</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">9</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-1" class="step">
+      <h2 class="step__exercise">squat jumps</h2>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">10</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+    <li id="step-0" class="step">
+      <h2 class="step__exercise">walking in place</h2>
+      <h3 class="step__subtitle">Cool Down</h3>
+      <p class="step-recorder">
+        <span class="tep-recorder__current-step">11</span> / <span class="step-recorder__num-of-steps">11</span>
+      </p>
+    </li>
+  </ol>
+</body>
+
+</html>
+
