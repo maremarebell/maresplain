@@ -302,9 +302,16 @@ h1, h2,h3, .step__container {
   text-align: center;
 }
 
-
 .page-workout a {
   word-break: break-all;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 
@@ -496,7 +503,8 @@ h1, h2,h3, .step__container {
 
 
 /* HOMEPAGE */
-.page-home {
+.page-home,
+.page-oredev {
   background-color: #ff00ff;
   display: flex;
   height: 100vh;
@@ -506,10 +514,18 @@ h1, h2,h3, .step__container {
   padding-right: 2%;
 }
 
-.page-home h1 {
+.page-home h1,
+.page-oredev h1{
   font-size: 50px;
   text-align: left;
   line-height: 1.1em;
+}
+
+.page-oredev {
+  padding: 4%;
+  width:  100%;
+  max-width: 100%;
+  display:  block;
 }
 
 .list__container {
