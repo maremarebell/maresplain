@@ -528,6 +528,10 @@ html {
   display:  block;
 }
 
+.page-oredev h1 {
+  margin-bottom: 20px;
+}
+
 .list__container {
   align-self: center;
   justify-content: center;
