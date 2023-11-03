@@ -1,2 +1,2 @@
 # maresplain
-A place for maresplanations. Mare explains it all.
+A place for maresplanations.
