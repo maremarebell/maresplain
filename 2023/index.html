@@ -4,14 +4,69 @@
   <title>2023</title>
   <style>
     img {max-width: 200px; float: left;}
+    .month {display: block; clear: both;}
 
   </style>
+
 </head>
 <body>
   <h1>2023</h1>
+    <div class="grid">
+      <div class="image grid-item brooklyn">
+        <img src="images/1-1-2023-1.JPG">
+        <p class="location">Brooklyn, NY</p>
+        <p class="people">mare, Harrison</p>
+        <p class="month">January</p>
+        <p class="day">1</p>
+        <p class="caption"></p>
+        <p class="event">NYE Party</p>
+      </div>
   
-  <div>
+      <div class="image grid-item">
+        <img src="images/1-1-2023-2.JPG">
+        <p class="location">Brooklyn, NY</p>
+        <p class="people">mare</p>
+        <p class="month">January</p>
+        <p class="day">1</p>
+        <p class="caption"></p>
+        <p class="event">NYE Party</p>
+      </div>
+    </div>
+
+
+  <div class="month">
+    <img src="images/1-1-2023-3.PNG">
+    <img src="images/1-1-2023-4.JPG">
+    <img src="images/1-12-2023-1.JPG">
+    <img src="images/1-12-2023-2.GIF">
+    <img src="images/1-12-2023-3.JPG">
+    <img src="images/1-12-2023-4.GIF">
+    <img src="images/1-12-2023-5.JPG">
+    <img src="images/1-12-2023-6.JPG">
+    <img src="images/1-18-2023.JPG">
+    <img src="images/1-20-2023.JPG">
+    <img src="images/1-23-2023-2.JPG">
+    <img src="images/1-23-2023.JPG">
+    <img src="images/1-25-2023.JPG">
+    <img src="images/1-27-2023.JPG">
+    <img src="images/1-28-2023-1.JPG">
+    <img src="images/1-28-2023-2.JPG">
+    <img src="images/1-29-2023-1.JPG">
+    <img src="images/1-29-2023-2.JPG">
+    <img src="images/1-29-2023-3.JPG">
+    <img src="images/1-29-2023-4.JPG">
+    <img src="images/1-30-2023-1.JPG">
+    <img src="images/1-30-2023-2.JPG">
+    <img src="images/1-31-2023-1.JPG">
+    <img src="images/1-31-2023-2.JPG">
+    <img src="images/1-31-2023-3.JPG">
+  </div>
+
+  <div class="month">
     <h2>December</h2>
+    <div class="thing">
+
+    </div>
     <img src="images/12-29-2023.PNG" alt="Image 1">
     <img src="images/12-22-2023.PNG" alt="Image 2">
     <img src="images/12-20-2023.JPG" alt="Image 3">
@@ -24,5 +79,20 @@
       <li>Petite Parlor with Kat and Aidan (and seeing Fancy Feast!)</li>
     </ul>
   </div>
+  <div>
+    Things I Loved
+    Going back to weekly yoga
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script>
+    $('.grid').isotope({
+      // options
+      itemSelector: '.grid-item',
+      layoutMode: 'fitRows'
+    });
+  </script>
 </body>
 </html>
