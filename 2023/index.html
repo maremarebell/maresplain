@@ -11,29 +11,61 @@
 </head>
 <body>
   <h1>2023</h1>
+  <h2>Filter</h2>
+  <div id="filters" class="button-group">
+    <button class="button is-checked" data-filter="*">show all</button>
+    <button class="button" data-filter="Brooklyn, NY">Brooklyn, NY</button>
+    <button class="button" data-filter="Coney Island">Coney Island</button>
+    <!-- Other location filter buttons -->
+  </div>
     <div class="grid">
-      <div class="image grid-item brooklyn">
-        <img src="images/1-1-2023-1.JPG">
-        <p class="location">Brooklyn, NY</p>
-        <p class="people">mare, Harrison</p>
-        <p class="month">January</p>
-        <p class="day">1</p>
-        <p class="caption"></p>
-        <p class="event">NYE Party</p>
+      <div class="happening">
+        <p class="happening__title">NYE Party </p>
+
+        <div class="image grid-item">
+          <img src="images/1-1-2023-1.JPG">
+          <p class="location">Brooklyn, NY</p>
+          <p class="people">mare, Harrison</p>
+          <p class="month">January</p>
+          <p class="day">1</p>
+          <p class="caption"></p>
+        </div>
+    
+        <div class="image grid-item">
+          <img src="images/1-1-2023-2.JPG">
+          <p class="location">Brooklyn, NY</p>
+          <p class="people">mare</p>
+          <p class="month">January</p>
+          <p class="day">1</p>
+          <p class="caption"></p>
+        </div>
       </div>
-  
-      <div class="image grid-item">
-        <img src="images/1-1-2023-2.JPG">
-        <p class="location">Brooklyn, NY</p>
-        <p class="people">mare</p>
-        <p class="month">January</p>
-        <p class="day">1</p>
-        <p class="caption"></p>
-        <p class="event">NYE Party</p>
+
+      <div class="happening">
+        <p class="happening__title">Polar Bear Plunge</p>
+
+        <div class="image grid-item">
+          <img src="images/1-1-2023-3.PNG">
+          <p class="location">Coney Island</p>
+          <p class="people">mare, colin</p>
+          <p class="month">January</p>
+          <p class="day">1</p>
+          <p class="caption"></p>
+        </div>
+    
+        <div class="image grid-item">
+          <img src="images/1-1-2023-4.JPG">
+          <p class="location">Coney Island</p>
+          <p class="people">mare, harrison</p>
+          <p class="month">January</p>
+          <p class="day">1</p>
+          <p class="caption"></p>
+        </div>
       </div>
+      
     </div>
 
-
+<!-- 
   <div class="month">
     <img src="images/1-1-2023-3.PNG">
     <img src="images/1-1-2023-4.JPG">
@@ -60,39 +92,64 @@
     <img src="images/1-31-2023-1.JPG">
     <img src="images/1-31-2023-2.JPG">
     <img src="images/1-31-2023-3.JPG">
-  </div>
+  </div> -->
 
-  <div class="month">
-    <h2>December</h2>
-    <div class="thing">
-
-    </div>
-    <img src="images/12-29-2023.PNG" alt="Image 1">
-    <img src="images/12-22-2023.PNG" alt="Image 2">
-    <img src="images/12-20-2023.JPG" alt="Image 3">
-    <img src="images/12-17-2023-2.JPG" alt="Image 4">
-    <img src="images/12-8-2023.JPG" alt="Image 5">
-    <img src="images/12-8-2023-3.JPG" alt="Image 6">
-
-    <ul>
-      <li>Kat's Show</li>
-      <li>Petite Parlor with Kat and Aidan (and seeing Fancy Feast!)</li>
-    </ul>
-  </div>
-  <div>
-    Things I Loved
-    Going back to weekly yoga
 
   </div>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
   <script>
-    $('.grid').isotope({
-      // options
+
+    var $grid = $('.grid').isotope({
       itemSelector: '.grid-item',
-      layoutMode: 'fitRows'
+      layoutMode: 'fitRows',
     });
+
+
+    var filterFns = {
+  location: function() {
+    var location = $(this).find('.location').text();
+    return location;
+  }
+};
+
+$('#filters').on('click', 'button', function() {
+  var filterValue = $(this).attr('data-filter');
+  // use filterFn if matches value
+  filterValue = filterFns[filterValue] || filterValue;
+  $grid.isotope({
+    filter: function() {
+      var locationText = $(this).find('.location').text();
+      return filterValue === '*' || locationText === filterValue;
+    }
+  });
+});
+
+$('.button-group').each(function(i, buttonGroup) {
+  var $buttonGroup = $(buttonGroup);
+  $buttonGroup.on('click', 'button', function() {
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    $(this).addClass('is-checked');
+  });
+});
+
+  // bind sort button click
+  $('#sorts').on( 'click', 'button', function() {
+    var sortByValue = $(this).attr('data-sort-by');
+    $grid.isotope({ sortBy: sortByValue });
+  });
+
+  // change is-checked class on buttons
+  $('.button-group').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).addClass('is-checked');
+    });
+  });
+    
+
   </script>
 </body>
 </html>
