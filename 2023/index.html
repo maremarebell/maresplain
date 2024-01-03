@@ -8,16 +8,26 @@
 
     .image {
       position: relative;
-      width: 300px;
+      /* width: 300px; */
+      height: auto;
+    }
+
+    .grid-sizer, .grid-item {
+      width: 50%;
     }
 
     img {
       width: 100%;
+      display: block;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
     }
 
     .day {
-      width: 40px;
-      height: 40px;
+      width: 30px;
       background-color: rgb(100, 100, 100, .6);
       position: absolute;
       top: 0;
@@ -26,10 +36,43 @@
       padding: 4px 10px;
       text-align: center;
       color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 1000;
     }
 
-  </style>
+    .event {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+    }
 
+    .people {
+      position: absolute;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 400;
+      left: 0;
+      bottom: 10px;
+    }
+
+    .caption {
+      position: absolute;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 400;
+      left: 0;
+      bottom: 10px;
+    }
+
+    .month {display: none;}
+    .theme {display: none;}
+
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;900;1000&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;0,8..60,800;0,8..60,900;1,8..60,300;1,8..60,400;1,8..60,500;1,8..60,600;1,8..60,700;1,8..60,800;1,8..60,900&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>2023</h1>
@@ -39,6 +82,7 @@
     <!-- Other location filter buttons -->
   </div>
   <div class="grid">
+    <div class="grid-sizer"></div>
     <div class="image grid-item">
       <img src="images/1-1-2023-1.JPG">
       <p class="people">mare, harrison</p>
@@ -260,7 +304,10 @@
   <script>
     var $grid = $('.grid').isotope({
       itemSelector: '.grid-item',
-      layoutMode: 'fitRows',
+      masonry: {
+        // use outer width of grid-sizer for columnWidth
+        columnWidth: '.grid-sizer'
+      }
     });
 
     // Function to extract unique names from '.people' class
