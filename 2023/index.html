@@ -3,8 +3,30 @@
 <head>
   <title>2023</title>
   <style>
-    img {max-width: 200px; float: left;}
+    /* img {max-width: 200px; float: left;} */
     .month {display: block; clear: both;}
+
+    .image {
+      position: relative;
+      width: 300px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .day {
+      width: 40px;
+      height: 40px;
+      background-color: rgb(100, 100, 100, .6);
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 4px 10px;
+      text-align: center;
+      color: #fff;
+    }
 
   </style>
 
@@ -14,142 +36,281 @@
   <h2>Filter</h2>
   <div id="filters" class="button-group">
     <button class="button is-checked" data-filter="*">show all</button>
-    <button class="button" data-filter="Brooklyn, NY">Brooklyn, NY</button>
-    <button class="button" data-filter="Coney Island">Coney Island</button>
     <!-- Other location filter buttons -->
   </div>
-    <div class="grid">
-      <div class="happening">
-        <p class="happening__title">NYE Party </p>
-
-        <div class="image grid-item">
-          <img src="images/1-1-2023-1.JPG">
-          <p class="location">Brooklyn, NY</p>
-          <p class="people">mare, Harrison</p>
-          <p class="month">January</p>
-          <p class="day">1</p>
-          <p class="caption"></p>
-        </div>
-    
-        <div class="image grid-item">
-          <img src="images/1-1-2023-2.JPG">
-          <p class="location">Brooklyn, NY</p>
-          <p class="people">mare</p>
-          <p class="month">January</p>
-          <p class="day">1</p>
-          <p class="caption"></p>
-        </div>
-      </div>
-
-      <div class="happening">
-        <p class="happening__title">Polar Bear Plunge</p>
-
-        <div class="image grid-item">
-          <img src="images/1-1-2023-3.PNG">
-          <p class="location">Coney Island</p>
-          <p class="people">mare, colin</p>
-          <p class="month">January</p>
-          <p class="day">1</p>
-          <p class="caption"></p>
-        </div>
-    
-        <div class="image grid-item">
-          <img src="images/1-1-2023-4.JPG">
-          <p class="location">Coney Island</p>
-          <p class="people">mare, harrison</p>
-          <p class="month">January</p>
-          <p class="day">1</p>
-          <p class="caption"></p>
-        </div>
-      </div>
-      
+  <div class="grid">
+    <div class="image grid-item">
+      <img src="images/1-1-2023-1.JPG">
+      <p class="people">mare, harrison</p>
+      <p class="month">January</p>
+      <p class="day">1</p>
+      <p class="caption"></p>
+      <p class="event">NYE Party</p>
+    </div>
+  
+    <div class="image grid-item">
+      <img src="images/1-1-2023-2.JPG">
+      <p class="people">mare</p>
+      <p class="month">January</p>
+      <p class="day">1</p>
+      <p class="caption"></p>
+      <p class="event">NYE Party</p>
     </div>
 
-<!-- 
-  <div class="month">
-    <img src="images/1-1-2023-3.PNG">
-    <img src="images/1-1-2023-4.JPG">
-    <img src="images/1-12-2023-1.JPG">
-    <img src="images/1-12-2023-2.GIF">
-    <img src="images/1-12-2023-3.JPG">
-    <img src="images/1-12-2023-4.GIF">
-    <img src="images/1-12-2023-5.JPG">
-    <img src="images/1-12-2023-6.JPG">
-    <img src="images/1-18-2023.JPG">
-    <img src="images/1-20-2023.JPG">
-    <img src="images/1-23-2023-2.JPG">
-    <img src="images/1-23-2023.JPG">
-    <img src="images/1-25-2023.JPG">
-    <img src="images/1-27-2023.JPG">
-    <img src="images/1-28-2023-1.JPG">
-    <img src="images/1-28-2023-2.JPG">
-    <img src="images/1-29-2023-1.JPG">
-    <img src="images/1-29-2023-2.JPG">
-    <img src="images/1-29-2023-3.JPG">
-    <img src="images/1-29-2023-4.JPG">
-    <img src="images/1-30-2023-1.JPG">
-    <img src="images/1-30-2023-2.JPG">
-    <img src="images/1-31-2023-1.JPG">
-    <img src="images/1-31-2023-2.JPG">
-    <img src="images/1-31-2023-3.JPG">
-  </div> -->
+    <div class="image grid-item">
+      <img src="images/1-1-2023-3.PNG">
+      <p class="people">mare, colin</p>
+      <p class="month">January</p>
+      <p class="day">1</p>
+      <p class="caption"></p>
+      <p class="event">Polar Bear Plunge</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-1-2023-4.JPG">
+      <p class="people">mare, harrison</p>
+      <p class="month">January</p>
+      <p class="day">1</p>
+      <p class="caption"></p>
+      <p class="event">Polar Bear Plunge</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-12-2023-1.JPG">
+      <p class="people">mare, blam</p>
+      <p class="month">January</p>
+      <p class="day">12</p>
+      <p class="caption"></p>
+      <p class="event">Adobe Party</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-12-2023-2.GIF">
+      <p class="people">mare, blam, sana, andrew</p>
+      <p class="month">January</p>
+      <p class="day">12</p>
+      <p class="caption"></p>
+      <p class="event">Adobe Party</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-12-2023-3.JPG">
+      <p class="people">mare, blam, sana, andrew</p>
+      <p class="month">January</p>
+      <p class="day">12</p>
+      <p class="caption"></p>
+      <p class="event">Adobe Party</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-12-2023-4.GIF">
+      <p class="people">mare, blam, sana, andrew, raj</p>
+      <p class="month">January</p>
+      <p class="day">12</p>
+      <p class="caption"></p>
+      <p class="event">Adobe Party</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-12-2023-5.JPG">
+      <p class="people">manny, kozma, blam, raj, nicole, srini, andrew</p>
+      <p class="month">January</p>
+      <p class="day">12</p>
+      <p class="caption"></p>
+      <p class="event">Adobe Party</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-12-2023-6.JPG">
+      <p class="people">manny, kozma, blam, raj, nicole, srini, andrew</p>
+      <p class="month">January</p>
+      <p class="day">12</p>
+      <p class="caption"></p>
+      <p class="event">Adobe Party</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-18-2023.JPG">
+      <p class="people">sean</p>
+      <p class="month">January</p>
+      <p class="day">18</p>
+      <p class="caption">Reference for how far we've come</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-20-2023.JPG">
+      <p class="people">mare</p>
+      <p class="month">January</p>
+      <p class="day">20</p>
+      <p class="caption">Reference for how far we've come</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-23-2023-2.JPG">
+      <p class="people">sean, andrew, srini, blam, mare</p>
+      <p class="month">January</p>
+      <p class="day">23</p>
+      <p class="caption"></p>
+      <p class="event">Adobe Trivia</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-23-2023.JPG">
+      <p class="people">mare</p>
+      <p class="month">January</p>
+      <p class="day">23</p>
+      <p class="caption">Cool purple hair 💜</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-25-2023.JPG">
+      <p class="people">mare</p>
+      <p class="month">January</p>
+      <p class="day">25</p>
+      <p class="caption">Cool purple hair 💜</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-27-2023.JPG">
+      <p class="people">kyle, nandy, cat, sal, ricky, teddy, federika, moby, percy</p>
+      <p class="month">January</p>
+      <p class="day">27</p>
+      <p class="caption">Family Photo</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-28-2023-1.JPG">
+      <p class="people">mare</p>
+      <p class="month">January</p>
+      <p class="day">28</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-28-2023-2.JPG">
+      <p class="people">mare</p>
+      <p class="month">January</p>
+      <p class="day">28</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+    </div>
 
+    <div class="image grid-item">
+      <img src="images/1-29-2023-1.JPG">
+      <p class="people">mare</p>
+      <p class="month">January</p>
+      <p class="day">29</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+      <p class="theme">baths</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-29-2023-2.JPG">
+      <p class="month">January</p>
+      <p class="day">29</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-29-2023-3.JPG">
+      <p class="month">January</p>
+      <p class="day">29</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+      <p class="theme">baths</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-29-2023-4.JPG">
+      <p class="month">January</p>
+      <p class="day">29</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+    </div>
 
+    <div class="image grid-item">
+      <img src="images/1-30-2023-1.JPG">
+      <p class="people">mare</p>
+      <p class="month">January</p>
+      <p class="day">30</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+      <p class="theme">baths</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-30-2023-2.JPG">
+      <p class="month">January</p>
+      <p class="day">30</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+    </div>
+
+    <div class="image grid-item">
+      <img src="images/1-31-2023-1.JPG">
+      <p class="month">January</p>
+      <p class="day">31</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-31-2023-2.JPG">
+      <p class="people">sean</p>
+      <p class="month">January</p>
+      <p class="day">31</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+    </div>
+    <div class="image grid-item">
+      <img src="images/1-31-2023-3.JPG">
+      <p class="month">January</p>
+      <p class="day">31</p>
+      <p class="caption"></p>
+      <p class="event">Australia Trip</p>
+      <p class="theme">baths</p>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
   <script>
-
     var $grid = $('.grid').isotope({
       itemSelector: '.grid-item',
       layoutMode: 'fitRows',
     });
 
-
-    var filterFns = {
-  location: function() {
-    var location = $(this).find('.location').text();
-    return location;
-  }
-};
-
-$('#filters').on('click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
-  // use filterFn if matches value
-  filterValue = filterFns[filterValue] || filterValue;
-  $grid.isotope({
-    filter: function() {
-      var locationText = $(this).find('.location').text();
-      return filterValue === '*' || locationText === filterValue;
+    // Function to extract unique names from '.people' class
+    function getUniqueNames() {
+      var names = [];
+      $('.people').each(function() {
+        var personNames = $(this).text().split(', ');
+        personNames.forEach(function(name) {
+          if (names.indexOf(name) === -1) {
+            names.push(name);
+          }
+        });
+      });
+      return names;
     }
-  });
-});
 
-$('.button-group').each(function(i, buttonGroup) {
-  var $buttonGroup = $(buttonGroup);
-  $buttonGroup.on('click', 'button', function() {
-    $buttonGroup.find('.is-checked').removeClass('is-checked');
-    $(this).addClass('is-checked');
-  });
-});
+    // Generate filter buttons based on unique names
+    function generateFilterButtons() {
+      var uniqueNames = getUniqueNames();
+      var $filters = $('#filters');
+      $filters.empty(); // Clear existing buttons (if any)
+      var $showAllButton = $('<button>', {
+        class: 'button is-checked',
+        'data-filter': '*',
+        text: 'show all'
+      });
+      $filters.append($showAllButton);
+      uniqueNames.forEach(function(name) {
+        var $button = $('<button>', {
+          class: 'button',
+          'data-filter': name.toLowerCase(), // Use lowercase name as filter value
+          text: name
+        });
+        $filters.append($button);
+      });
+    }
 
-  // bind sort button click
-  $('#sorts').on( 'click', 'button', function() {
-    var sortByValue = $(this).attr('data-sort-by');
-    $grid.isotope({ sortBy: sortByValue });
-  });
-
-  // change is-checked class on buttons
-  $('.button-group').each( function( i, buttonGroup ) {
-    var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', 'button', function() {
-      $buttonGroup.find('.is-checked').removeClass('is-checked');
-      $( this ).addClass('is-checked');
+    // Update Isotope filter to target '.people' class
+    $('#filters').on('click', 'button', function() {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({
+        filter: function() {
+          var peopleText = $(this).find('.people').text();
+          return filterValue === '*' || peopleText.includes(filterValue);
+        }
+      });
     });
-  });
-    
 
+    // Call the function to generate filter buttons
+    generateFilterButtons();
   </script>
 </body>
 </html>
