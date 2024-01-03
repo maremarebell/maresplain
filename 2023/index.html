@@ -309,55 +309,59 @@
         columnWidth: '.grid-sizer'
       }
     });
-
-    // Function to extract unique names from '.people' class
-    function getUniqueNames() {
-      var names = [];
-      $('.people').each(function() {
-        var personNames = $(this).text().split(', ');
-        personNames.forEach(function(name) {
-          if (names.indexOf(name) === -1) {
-            names.push(name);
-          }
-        });
-      });
-      return names;
-    }
-
-    // Generate filter buttons based on unique names
-    function generateFilterButtons() {
-      var uniqueNames = getUniqueNames();
-      var $filters = $('#filters');
-      $filters.empty(); // Clear existing buttons (if any)
-      var $showAllButton = $('<button>', {
-        class: 'button is-checked',
-        'data-filter': '*',
-        text: 'show all'
-      });
-      $filters.append($showAllButton);
-      uniqueNames.forEach(function(name) {
-        var $button = $('<button>', {
-          class: 'button',
-          'data-filter': name.toLowerCase(), // Use lowercase name as filter value
-          text: name
-        });
-        $filters.append($button);
-      });
-    }
-
-    // Update Isotope filter to target '.people' class
-    $('#filters').on('click', 'button', function() {
-      var filterValue = $(this).attr('data-filter');
-      $grid.isotope({
-        filter: function() {
-          var peopleText = $(this).find('.people').text();
-          return filterValue === '*' || peopleText.includes(filterValue);
-        }
-      });
+// Function to extract unique names from '.people' class and count occurrences
+function getUniqueNamesWithCount() {
+  var names = {};
+  $('.people').each(function() {
+    var personNames = $(this).text().split(', ');
+    personNames.forEach(function(name) {
+      names[name] = (names[name] || 0) + 1;
     });
+  });
+  return names;
+}
 
-    // Call the function to generate filter buttons
-    generateFilterButtons();
+// Generate filter buttons with counts based on unique names sorted by count
+function generateFilterButtonsWithCount() {
+  var uniqueNamesWithCount = getUniqueNamesWithCount();
+  var sortedNames = Object.keys(uniqueNamesWithCount).sort(function(a, b) {
+    return uniqueNamesWithCount[b] - uniqueNamesWithCount[a]; // Sort by count
+  });
+
+  var $filters = $('#filters');
+  $filters.empty(); // Clear existing buttons (if any)
+  var $showAllButton = $('<button>', {
+    class: 'button is-checked',
+    'data-filter': '*',
+    text: 'show all'
+  });
+  $filters.append($showAllButton);
+
+  sortedNames.forEach(function(name) {
+    var $button = $('<button>', {
+      class: 'button',
+      'data-filter': name.toLowerCase(), // Use lowercase name as filter value
+      html: `${name} (${uniqueNamesWithCount[name]})` // Add count in parentheses
+    });
+    $filters.append($button);
+  });
+}
+
+// Update Isotope filter to target '.people' class
+$('#filters').on('click', 'button', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({
+    filter: function() {
+      var peopleText = $(this).find('.people').text();
+      return filterValue === '*' || peopleText.includes(filterValue);
+    }
+  });
+});
+
+// Call the function to generate filter buttons with counts sorted by count
+generateFilterButtonsWithCount();
+
+
   </script>
 </body>
 </html>
